@@ -1,18 +1,75 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="">
   <meta name="description" content="">
   <meta name="keywords" content="">
   <title>KONTINUUM</title>
-
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <p>HELLLO WORLD!</p>
+
+  <canvas id="canvas"></canvas>
+
+
+<!-- snippet from https://codepen.io/mutedblues/pen/MmPNPG -->
+
+  <header class="header">
+    <a href="#home" class="logo">
+      <img src="img/logo-kontinuum.png" alt="logo">
+    </a>
+    <a href="#home" class="text-logo">
+      <img src="img/text-logo-kontinuum.png" alt="logo">
+    </a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li> <a href="#home" onclick="showPage('home')">Home</a></li>
+      <li> <a href="#about" onclick="showPage('about')">About</a></li>
+      <li> <a href="#clients" onclick="showPage('clients')">Clients</a> </li>
+      <li> <a href="#contact" onclick="showPage('contact')">Contact</a> </li>
+    </ul>
+  </header>
+
+
+  <!-- pages -->
+  <!-- home page -->
+  <section id="home" class="page">
+    <p>My Single Page Web App Template</p>
+  </section>
+
+  <!-- about page -->
+  <section id="about" class="page">
+
+    <p>This is my about page</p>
+  </section>
+
+  <!-- clients page -->
+  <section id="clients" class="page">
+
+    <p>Hmm, there should be some clients right here...</p>
+  </section>
+
+  <!-- contact page -->
+  <section id="contact" class="page">
+
+  </section>
+
 </body>
+
+<script src="./build/three.js"></script>
+<script src="./build/three.min.js"></script>
+<script src="javascript/three.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="javascript/javascript.js"></script>
+
+<script>
+
+</script>
 
 </html>
