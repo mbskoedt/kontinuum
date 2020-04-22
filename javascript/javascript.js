@@ -1,3 +1,5 @@
+// SPA
+
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -35,9 +37,23 @@ function setActiveTab(pageId) {
   }
 }
 
+// Burgermenu functionallity
 setDefaultPage();
 
 
 $(".toggle").on("click", function() {
   $(".toggle").parent().toggleClass('active');
 });
+
+
+// Button animation
+function rotateTriangle() {
+  var triangle = document.getElementById("triangle");
+  triangle.classList.add("hundredEightyRotation")
+  var x = document.getElementById("modeInfoTiddy");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}

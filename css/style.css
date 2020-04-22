@@ -8,6 +8,22 @@
   box-sizing: border-box;
 }
 
+.background-color-red {
+  background-color: var(--red);
+}
+
+.background-color-purple {
+  background-color: var(--purple);
+}
+
+.background-color-white {
+  background-color: white;
+}
+
+.background-color-black {
+  background-color: black;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Quicksand:wght@300;400;600&display=swap');
 
 h1, h2, h3, h4, h5 {
@@ -22,12 +38,12 @@ li a {
 
 p {
   font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
 }
 
 html, body {
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
   margin: 0;
   background: linear-gradient(270deg, #dd0808, #991aa2);
   background-size: 300% 300%;
@@ -76,6 +92,11 @@ html, body {
   100% {
     background-position: 0% 50%
   }
+}
+
+button {
+  border: 0;
+  background-color: white;
 }
 
 /* ---------- header styling ---------- */
@@ -265,32 +286,81 @@ html, body {
   }
 }
 
-.container {
+.twoxtwo-container {
   width: 100vw;
   height: auto;
   display: grid;
-  grid-template-columns: 50vw auto;
-  grid-row: auto auto;
-
+  grid-template-columns: auto auto;
 }
 
 .box {
-  padding: 20px;
   color: black;
   display: flex;
+  font-family: sans-serif;
+  width: 50vw;
+}
+
+.artist-box {
+  flex-direction: column;
+}
+
+.color-box {
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
 }
 
-.color-red {
-  background-color: var(--red);
+.black-header-box {
+  width: 100%;
+  height: 20%;
+  background-color: black;
+  top: 0;
 }
 
-.color-purple {
-  background-color: var(--purple);
+.black-header-box h3 {
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.color-white {
-  background-color: white;
+.box-information {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.artist-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.read-more-button {
+  display: flex;
+  width: 100%;
+  background-color: none;
+}
+
+.read-more-triangle {
+  width: 0;
+  height: 0;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: 25.980762px solid var(--red);
+  //
+  (border-left-width 50px + border-right-width 50px) * 0.8660254=86.60254px border-bottom-width=EquilateralTriangle height
+}
+
+@keyframes rotate {
+  from {}
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.hundredEightyRotation {
+  animation: rotate 1s;
+}
+
+.more-info {
+  display: none;
+  grid-column: 1 / 3;
 }
