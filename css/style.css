@@ -4,10 +4,20 @@
   --green: #3bb590;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Quicksand:wght@300;400;600&display=swap');
 
 h1, h2, h3, h4, h5 {
   font-family: 'Quicksand', sans-serif;
+}
+
+li a {
+  font-family: 'Quicksand', sans-serif;
+  color: black;
+  font-size: 1.5em;
 }
 
 p {
@@ -17,35 +27,67 @@ p {
 html, body {
   width: 100vw;
   height: 100vh;
+  overflow: scroll;
   margin: 0;
-  /*  Disable scrollbars */
-  display: block;
-  /* No floating content on sides */
-  background: var(--red);
-  /* Old browsers */
-  background: -moz-linear-gradient(top, var(--purple) 0%, var(--red) 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, var(--purple) 0%, var(--red) 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, var(--purple) 0%, var(--red) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#11e8bb', endColorstr='#8200c9', GradientType=0);
-  /* IE6-9 */
+  background: linear-gradient(270deg, #dd0808, #991aa2);
+  background-size: 300% 300%;
+  -webkit-animation: AnimationName 49s ease infinite;
+  -moz-animation: AnimationName 49s ease infinite;
+  animation: AnimationName 49s ease infinite;
 }
 
-/* Background Canvas */
-#canvas {
-  display: block;
-  position: fixed;
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
 
 /* ---------- header styling ---------- */
 .header {
-  background-color: black;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
+  top: 0;
   position: fixed;
   width: 100%;
-  z-index: 3;
+  z-index: 10;
+  background: url("../img/text-logo-kontinuum.png") center center no-repeat;
+  background-size: 40vw;
+  background-color: black;
 }
 
 .header ul {
@@ -54,13 +96,15 @@ html, body {
   list-style: none;
   overflow: hidden;
   background-color: #fff;
+  letter-spacing: 3px;
 }
 
 .header li a {
   display: block;
-  padding: 20px 20px;
+  padding: 30px 30px;
   border-right: 1px solid #f4f4f4;
   text-decoration: none;
+  text-align: center;
 }
 
 .header li a:hover,
@@ -74,28 +118,15 @@ html, body {
 }
 
 .header .logo img {
-  margin: 10px;
+  margin: 15px;
   width: 8vh;
-}
-
-.header .text-logo {
-
-}
-
-.header .text-logo img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-  text
-
 }
 
 /* menu */
 .header .menu {
   clear: both;
   max-height: 0;
-  transition: max-height .2s ease-out;
+  transition: max-height .5s ease-out;
 }
 
 /* menu icon */
@@ -103,9 +134,14 @@ html, body {
   cursor: pointer;
   display: inline-block;
   float: right;
-  padding: 28px 20px;
+  padding: 18px 10px;
   position: relative;
   user-select: none;
+  margin: 5vw;
+  border: solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: linear-gradient(90deg, rgba(221, 8, 8, 1) 0%, rgba(153, 26, 162, 1) 100%);
 }
 
 .header .menu-icon .navicon {
@@ -142,7 +178,7 @@ html, body {
 }
 
 .header .menu-btn:checked~.menu {
-  max-height: 240px;
+  max-height: 100vh;
 }
 
 .header .menu-btn:checked~.menu-icon .navicon {
@@ -183,15 +219,38 @@ html, body {
   }
 }
 
+/* ------- Background Canvas -------- */
+.canvas-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+#canvas {
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+}
+
 /* ---------- page styling ---------- */
+.pages-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll
+}
+
 .page {
   display: none;
-  /*min heigh is screen heigh minus height of tab and top bar */
-  min-height: calc(100vh - 110px);
   animation: fadeIn 0.4s;
-  /* padding equals height of tabbar and topbar */
-  padding: 55px 0;
-  position: fixed;
+  background-color: white;
+  width: 100vw;
+}
+
+#home {
+  margin-top: 100vh;
 }
 
 /* ---------- animations ---------- */
@@ -204,4 +263,34 @@ html, body {
   to {
     opacity: 1
   }
+}
+
+.container {
+  width: 100vw;
+  height: auto;
+  display: grid;
+  grid-template-columns: 50vw auto;
+  grid-row: auto auto;
+
+}
+
+.box {
+  padding: 20px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.color-red {
+  background-color: var(--red);
+}
+
+.color-purple {
+  background-color: var(--purple);
+}
+
+.color-white {
+  background-color: white;
 }
