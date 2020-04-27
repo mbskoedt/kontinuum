@@ -16,6 +16,10 @@
   background-color: var(--purple);
 }
 
+.background-color-green {
+  background-color: var(--green);
+}
+
 .background-color-white {
   background-color: white;
 }
@@ -24,9 +28,37 @@
   background-color: black;
 }
 
+.color-red {
+  color: var(--red);
+}
+
+.color-purple {
+  color: var(--purple);
+}
+
+.color-green {
+  background-color: var(--green);
+}
+
+.color-white {
+  color: white;
+}
+
+.color-black {
+  color: black;
+}
+
+.margin-right {
+  margin-right: 10px;
+}
+
+.margin-left {
+  margin-left: 5px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Quicksand:wght@300;400;600&display=swap');
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, a {
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -39,6 +71,13 @@ li a {
 p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+  font-size: 13px;
+}
+
+button, button p {
+  background-color: none;
+  font-family: 'Quicksand', sans-serif;
+  padding: 0;
 }
 
 html, body {
@@ -99,13 +138,17 @@ button {
   background-color: white;
 }
 
+figure {
+  margin: 0;
+}
+
 /* ---------- header styling ---------- */
 .header {
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
   top: 0;
   position: fixed;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
   background: url("../img/text-logo-kontinuum.png") center center no-repeat;
   background-size: 40vw;
   background-color: black;
@@ -219,6 +262,10 @@ button {
   top: 0;
 }
 
+.menu-collapse {
+  height: 0;
+}
+
 /* 48em = 768px */
 @media (min-width: 48em) {
   .header li {
@@ -256,11 +303,13 @@ button {
 }
 
 /* ---------- page styling ---------- */
-.pages-wrapper {
+#pages-wrapper {
   width: 100%;
   height: 100%;
   position: absolute;
-  overflow-y: scroll
+  overflow-y: scroll;
+  z-index: 10;
+  scroll-behavior: smooth;
 }
 
 .page {
@@ -268,10 +317,58 @@ button {
   animation: fadeIn 0.4s;
   background-color: white;
   width: 100vw;
+  margin-bottom: 100vh;
 }
 
 #home {
   margin-top: 100vh;
+}
+
+#home-header {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+}
+
+#home-header-arrow {
+  -webkit-animation: upDown 1.5s infinite alternate;
+  animation: upDown 1.5s infinite alternate;
+}
+
+@-webkit-keyframes upDown {
+  0% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+#home-footer {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home-footer a {
+  color: white;
+  text-decoration: none;
 }
 
 /* ---------- animations ---------- */
@@ -286,7 +383,7 @@ button {
   }
 }
 
-.twoxtwo-container {
+#grid-container {
   width: 100vw;
   height: auto;
   display: grid;
@@ -298,6 +395,15 @@ button {
   display: flex;
   font-family: sans-serif;
   width: 50vw;
+}
+
+.box h3 {
+  color: white;
+  text-transform: uppercase;
+}
+
+.color-box h3 {
+  font-weight: 100;
 }
 
 .artist-box {
@@ -317,9 +423,10 @@ button {
 }
 
 .black-header-box h3 {
-  color: white;
   padding-left: 10px;
   padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .box-information {
@@ -330,23 +437,49 @@ button {
 .artist-image {
   max-width: 100%;
   max-height: 100%;
+  overflow: hidden;
+}
+
+.artist-hashtags {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .read-more-button {
   display: flex;
   width: 100%;
-  background-color: none;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+  text-decoration: underline;
+}
+
+.read-more-button p {
+  margin: 5px;
+}
+
+.music-red {
+  text-decoration-color: var(--red);
+}
+
+.art-purple {
+  flex-direction: row-reverse;
+  margin-left: 0;
+  text-decoration-color: var(--purple);
 }
 
 .read-more-triangle {
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  border-bottom: 20px solid;
   width: 0;
   height: 0;
-  border-right: 15px solid transparent;
-  border-left: 15px solid transparent;
-  border-bottom: 25.980762px solid var(--red);
-  //
-  (border-left-width 50px + border-right-width 50px) * 0.8660254=86.60254px border-bottom-width=EquilateralTriangle height
 }
+
+.point-right {}
+
+.point-left {}
 
 @keyframes rotate {
   from {}
@@ -361,6 +494,130 @@ button {
 }
 
 .more-info {
-  display: none;
+  margin: 10px;
+  margin-top: -10px;
   grid-column: 1 / 3;
+  max-height: 0;
+  transition: max-height 0.35s ease-out;
+  overflow: hidden;
+}
+
+.displayBlock {
+  /*  display: block !important; */
+  max-height: 500px;
+  transition: max-height 0.35s ease-in;
+}
+
+/* rotate */
+.rotateDown {
+  animation: arrowAnimDown 0.3s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes arrowAnimDown {
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.rotateTop {
+  animation: arrowAnimTop 0.3s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes arrowAnimTop {
+  from {
+    transform: rotate(180deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+    /* read ahead for alternate animation */
+  }
+}
+
+.ticket-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ticket-box .box-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket-button {
+  box-shadow: 2px 3px 0px 0px black;
+  background: linear-gradient(to bottom, #189056 5%, #48c3a7 100%);
+  border-radius: 17px;
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.ticket-button a {
+  margin: 20px;
+  text-decoration: none;
+}
+
+.ticket-button:hover {
+  background: linear-gradient(to bottom, #48c3a7 5%, #189056 100%);
+  background-color: #f24437;
+}
+
+.ticket-button:active {
+  position: relative;
+  top: 1px;
+}
+
+/* ------ FOOTER ----- */
+.footer-nav {
+  position: fixed;
+  z-index: 0;
+  bottom: 0;
+  display: none;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+.footer-nav h3 {
+  font-size: 14px;
+}
+
+.show, .footer-nav:hover {
+  display: block;
+}
+
+.sponsor-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.sub-header {
+  padding: 10px;
+  padding-bottom: 10px;
+}
+
+.sub-header a {
+  font-size: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

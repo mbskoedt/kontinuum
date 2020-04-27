@@ -28,7 +28,7 @@ function setDefaultPage() {
 function setActiveTab(pageId) {
   let pages = document.querySelectorAll(".tabbar a");
   for (let page of pages) {
-    if (`#${pageId}` === page.getAttribute("href")) {
+    if ("#" + pageId === page.getAttribute("href")) {
       page.classList.add("active");
     } else {
       page.classList.remove("active");
@@ -37,23 +37,70 @@ function setActiveTab(pageId) {
   }
 }
 
-// Burgermenu functionallity
 setDefaultPage();
 
+// Fit text
+jQuery(".artist-hashtags").fitText(1.4);
+
+// Burgermenu functionallity
 
 $(".toggle").on("click", function() {
   $(".toggle").parent().toggleClass('active');
 });
 
 
-// Button animation
-function rotateTriangle() {
-  var triangle = document.getElementById("triangle");
-  triangle.classList.add("hundredEightyRotation")
-  var x = document.getElementById("modeInfoTiddy");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
+// Keep footer at bottom: 0;
+
+// https://codepen.io/labanino/pen/mexgmL
+
+$(".pages-wrapper").scroll(function(event) {
+  function footer() {
+    var scroll = $(".pages-wrapper").scrollTop();
+    if (scroll > 1500) {
+      $(".footer-nav").fadeIn("slow").addClass("show");
+    } else {
+      $(".footer-nav").fadeOut("slow").removeClass("show");
+    }
+
+    clearTimeout($.data(this, 'scrollTimer'));
+    $.data(this, 'scrollTimer', setTimeout(function() {
+      if ($('.footer-nav').is(':hover')) {
+        footer();
+      } else {
+        $(".footer-nav").fadeOut("slow");
+      }
+    }, 200000));
   }
+  footer();
+});
+
+// scroll page to top of artist page
+
+// The function actually applying the offset
+function offsetAnchor() {
+  if (location.hash.length !== 0) {
+    let activeWindow = document.getElementById("pages-wrapper");
+    let offsetHeight = document.getElementById("home-header").offsetHeight;
+    activeWindow.scrollTo(window.scrollX, window.scrollY + offsetHeight);
+  }
+}
+
+// Captures click events of all a elements with href starting with #
+$(document).on('click', 'a[href="#home"]', function(event) {
+  // Click events are captured before hashchanges. Timeout
+  // causes offsetAnchor to be called after the page jump.
+  window.setTimeout(function() {
+    offsetAnchor();
+  }, 0);
+});
+
+// Set the offset when entering page with hash present in the url
+window.setTimeout(offsetAnchor, 0);
+
+
+// go to artist window from arrow
+
+function goToArtists() {
+  let artistWindow = document.getElementById("home-header")
+  artistWindow.scrollIntoView();
 }
