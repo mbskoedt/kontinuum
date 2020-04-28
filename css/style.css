@@ -89,12 +89,19 @@ html, body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  overflow-x: hidden;
   background: linear-gradient(270deg, #dd0808, #991aa2);
   background-size: 300% 300%;
   -webkit-animation: AnimationName 30s ease infinite;
   -moz-animation: AnimationName 30s ease infinite;
   animation: AnimationName 30s ease infinite;
 }
+
+canvas {
+  position: fixed;
+}
+
+/* ----- BACKGROUND ANIMATION ------ */
 
 @-webkit-keyframes AnimationName {
   0% {
@@ -272,27 +279,11 @@ figure {
   height: 0;
 }
 
-/* ------- Background Canvas -------- */
-.canvas-container {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-}
-
-#canvas {
-  width: 100vw;
-  height: 100vh;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
-}
-
 /* ---------- page styling ---------- */
 #pages-wrapper {
   width: 100%;
   height: 100%;
   position: absolute;
-  overflow-y: scroll;
   z-index: 10;
   scroll-behavior: smooth;
 }
@@ -306,7 +297,7 @@ figure {
 }
 
 #home {
-  margin-top: 100vh;
+  margin-top: 90vh;
 }
 
 #home-header {
@@ -475,10 +466,6 @@ figure {
   height: 0;
 }
 
-.point-right {}
-
-.point-left {}
-
 @keyframes rotate {
   from {}
 
@@ -492,18 +479,19 @@ figure {
 }
 
 .more-info {
-  margin: 10px;
-  margin-top: -10px;
   grid-column: 1 / 3;
   max-height: 0;
   transition: max-height 0.35s ease-out;
   overflow: hidden;
 }
 
+.more-info p {}
+
 .displayBlock {
   /*  display: block !important; */
-  max-height: 500px;
-  transition: max-height 0.35s ease-in;
+  margin: 10px;
+  max-height: 100%;
+  transition: max-height 0.55s ease-in;
 }
 
 /* rotate */
@@ -622,12 +610,52 @@ figure {
 
 /* ---------- FOR SCREENS 768px and above ---------- */
 @media (min-width: 760px) {
+
+  /* ------- CUSTOM SCROLLBAR ------ */
+  /* https://codepen.io/team/css-tricks/pen/QWWXQzE */
+  html {
+    --scrollbarBG: #CFD8DC;
+    --thumbBG: #90A4AE;
+  }
+
+  body::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+  }
+
   p {
     font-size: large;
   }
+
+  .more-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .more-info p {
+    margin: 20px;
+  }
+
+  #home {
+  }
 }
 
-@media all and (min-width: 1020px) {
+@media (min-width: 1020px) {
   body {
     width: 100vw;
   }
@@ -679,9 +707,6 @@ figure {
   }
 
   /* ------- Background Canvas -------- */
-  .canvas-container {
-    align-self: center;
-  }
 
   .page {
     width: 50vw;
@@ -708,5 +733,26 @@ figure {
 
   .box {
     width: 25vw;
+  }
+
+  /* --------- Artist info -------- */
+  .more-info p {
+    padding: 20px;
+  }
+
+  .more-info .wp-block-embed-instagram {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1700px) {
+  .more-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .more-info .displayBlock {
+    max-height: 110%;
   }
 }

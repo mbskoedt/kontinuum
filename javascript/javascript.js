@@ -53,10 +53,10 @@ $(".toggle").on("click", function() {
 
 // https://codepen.io/labanino/pen/mexgmL
 
-$(".pages-wrapper").scroll(function(event) {
+$("#pages-wrapper").scroll(function(event) {
   function footer() {
-    var scroll = $(".pages-wrapper").scrollTop();
-    if (scroll > 1500) {
+    var scroll = $("#pages-wrapper").scrollTop();
+    if (scroll > 1000) {
       $(".footer-nav").fadeIn("slow").addClass("show");
     } else {
       $(".footer-nav").fadeOut("slow").removeClass("show");

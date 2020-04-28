@@ -1,6 +1,6 @@
 "use strict";
 
-var x = window.matchMedia("(max-width: 700px)")
+var x = window.matchMedia("(max-width: 780px)")
 x.addListener(myFunction) // Attach listener function on state changes
 
 function myFunction(x) {
