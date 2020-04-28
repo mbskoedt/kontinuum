@@ -40,7 +40,7 @@ function setActiveTab(pageId) {
 setDefaultPage();
 
 // Fit text
-jQuery(".artist-hashtags").fitText(1.4);
+// jQuery(".artist-hashtags").fitText(1);
 
 // Burgermenu functionallity
 

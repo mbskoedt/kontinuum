@@ -1,23 +1,26 @@
+/* ---------- GLOBALS ----------- */
 :root {
   --red: #dd0808;
   --purple: #991aa2;
   --green: #3bb590;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Quicksand:wght@300;400;600&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 .background-color-red {
-  background-color: var(--red);
+  background: linear-gradient(290deg, var(--red) 0%, #e85d60 100%);
 }
 
 .background-color-purple {
-  background-color: var(--purple);
+  background: linear-gradient(290deg, var(--purple) 0%, #cb4dd4 100%);
 }
 
 .background-color-green {
-  background-color: var(--green);
+  background: linear-gradient(290deg, var(--green) 0%, #48c3a7 100%);
 }
 
 .background-color-white {
@@ -56,22 +59,24 @@
   margin-left: 5px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Quicksand:wght@300;400;600&display=swap');
-
 h1, h2, h3, h4, h5, a {
   font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3 {
+  font-size: large;
 }
 
 li a {
   font-family: 'Quicksand', sans-serif;
   color: black;
-  font-size: 1.5em;
+  font-size: large;
 }
 
 p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: medium;
 }
 
 button, button p {
@@ -86,9 +91,9 @@ html, body {
   margin: 0;
   background: linear-gradient(270deg, #dd0808, #991aa2);
   background-size: 300% 300%;
-  -webkit-animation: AnimationName 49s ease infinite;
-  -moz-animation: AnimationName 49s ease infinite;
-  animation: AnimationName 49s ease infinite;
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {
@@ -148,6 +153,7 @@ figure {
   top: 0;
   position: fixed;
   width: 100%;
+  height: 12vh;
   z-index: 100;
   background: url("../img/text-logo-kontinuum.png") center center no-repeat;
   background-size: 40vw;
@@ -266,27 +272,6 @@ figure {
   height: 0;
 }
 
-/* 48em = 768px */
-@media (min-width: 48em) {
-  .header li {
-    float: left;
-  }
-
-  .header li a {
-    padding: 20px 30px;
-  }
-
-  .header .menu {
-    clear: none;
-    float: right;
-    max-height: none;
-  }
-
-  .header .menu-icon {
-    display: none;
-  }
-}
-
 /* ------- Background Canvas -------- */
 .canvas-container {
   position: fixed;
@@ -325,7 +310,7 @@ figure {
 }
 
 #home-header {
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -359,7 +344,7 @@ figure {
 }
 
 #home-footer {
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -388,6 +373,10 @@ figure {
   height: auto;
   display: grid;
   grid-template-columns: auto auto;
+}
+
+#grid-container h3 {
+  font-size: x-large;
 }
 
 .box {
@@ -420,6 +409,7 @@ figure {
   height: 20%;
   background-color: black;
   top: 0;
+  text-align: center;
 }
 
 .black-header-box h3 {
@@ -432,6 +422,13 @@ figure {
 .box-information {
   padding-left: 10px;
   padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-information h5 {
+  font-size: x-small;
 }
 
 .artist-image {
@@ -444,12 +441,13 @@ figure {
   margin-top: 10px;
   margin-bottom: 10px;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .read-more-button {
   display: flex;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   margin: 10px;
   text-decoration: underline;
@@ -620,4 +618,95 @@ figure {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+/* ---------- FOR SCREENS 768px and above ---------- */
+@media (min-width: 760px) {
+  p {
+    font-size: large;
+  }
+}
+
+@media all and (min-width: 1020px) {
+  body {
+    width: 100vw;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: none;
+    width: 100vw;
+  }
+
+  .header .menu {
+    width: 50%;
+    margin-right: 1%;
+  }
+
+  .header ul {
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1%;
+  }
+
+  .no-border {
+    border-style: hidden !important;
+  }
+
+  .header li a {
+    color: white;
+    font-size: 0.7rem;
+    padding: 10px;
+  }
+
+  .header li {
+    width: 20vw;
+    padding-bottom: 2px;
+  }
+
+  .header .menu-icon {
+    display: none;
+  }
+
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: black;
+    background: linear-gradient(270deg, #dd0808, #991aa2);
+  }
+
+  /* ------- Background Canvas -------- */
+  .canvas-container {
+    align-self: center;
+  }
+
+  .page {
+    width: 50vw;
+  }
+
+  #pages-wrapper {
+    width: 50vw;
+    top: 0;
+    right: 0;
+    float: right;
+  }
+
+  #grid-container {
+    width: 50vw;
+  }
+
+  #home {
+    margin-top: 12vh;
+  }
+
+  #home-header {
+    display: none;
+  }
+
+  .box {
+    width: 25vw;
+  }
 }
