@@ -39,8 +39,6 @@ function setActiveTab(pageId) {
 
 setDefaultPage();
 
-// Fit text
-// jQuery(".artist-hashtags").fitText(1);
 
 // Burgermenu functionallity
 
@@ -49,14 +47,15 @@ $(".toggle").on("click", function() {
 });
 
 
-// Keep footer at bottom: 0;
+// Show footer when scrolled enough
 
 // https://codepen.io/labanino/pen/mexgmL
 
-$("#pages-wrapper").scroll(function(event) {
+$(window).scroll(function(event) {
   function footer() {
-    var scroll = $("#pages-wrapper").scrollTop();
-    if (scroll > 1000) {
+    var elementHeight = $("#pages-wrapper").outerHeight();
+    var scroll = $(window).scrollTop();
+    if (scroll > elementHeight) {
       $(".footer-nav").fadeIn("slow").addClass("show");
     } else {
       $(".footer-nav").fadeOut("slow").removeClass("show");
@@ -74,33 +73,14 @@ $("#pages-wrapper").scroll(function(event) {
   footer();
 });
 
-// scroll page to top of artist page
-
-// The function actually applying the offset
-function offsetAnchor() {
-  if (location.hash.length !== 0) {
-    let activeWindow = document.getElementById("pages-wrapper");
-    let offsetHeight = document.getElementById("home-header").offsetHeight;
-    activeWindow.scrollTo(window.scrollX, window.scrollY + offsetHeight);
-  }
-}
-
-// Captures click events of all a elements with href starting with #
-$(document).on('click', 'a[href="#home"]', function(event) {
-  // Click events are captured before hashchanges. Timeout
-  // causes offsetAnchor to be called after the page jump.
-  window.setTimeout(function() {
-    offsetAnchor();
-  }, 0);
-});
-
-// Set the offset when entering page with hash present in the url
-window.setTimeout(offsetAnchor, 0);
-
-
 // go to artist window from arrow
 
 function goToArtists() {
-  let artistWindow = document.getElementById("home-header")
+  let artistWindow = document.getElementById("home-header");
+  artistWindow.scrollIntoView();
+}
+
+function toTheTop() {
+  let artistWindow = document.getElementById("pages-wrapper");
   artistWindow.scrollIntoView();
 }

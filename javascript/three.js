@@ -7,16 +7,18 @@ function myFunction(x) {
   if (x.matches) {
     var width = window.innerWidth;
     var height = window.innerHeight;
+    var cubeSize = 75;
   } else {
     var width = window.innerWidth / 2;
     var height = window.innerHeight;
+    var cubeSize = 70;
   }
 
   // Gradiant Sphere with three.js
 
   var scene = new THREE.Scene();
 
-  var camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  var camera = new THREE.PerspectiveCamera(cubeSize, width / height, 0.1, 1000);
 
   var renderer = new THREE.WebGLRenderer({
     antialias: true,

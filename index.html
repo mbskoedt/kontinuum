@@ -15,11 +15,11 @@
 <body>
   <!-- snippet from https://codepen.io/mutedblues/pen/MmPNPG -->
 
-  <header class="header">
+  <header id="header" class="header">
     <a href="#home" onclick="showPage('home')" class="logo">
-      <img src="img/logo-kontinuum.png" alt="logo">
+      <img id="logo_1" src="img/logo-kontinuum.png" alt="logo">
+      <img id="logo_2" src="img/logo-kontinuum-with-text.png" alt="logo">
     </a>
-
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul id="menu" class="menu">
@@ -31,8 +31,15 @@
     </ul>
   </header>
 
-    <canvas id="canvas"></canvas>
-    
+  <canvas id="canvas"></canvas>
+  <div class="left-side-element">
+    <h2>One day festival for:</h2>
+    <h2> ART | MUSIC | LIGHTS | INTERACTIVENESS </h2>
+    <h2> VIDEO | DANCING | HANGING OUT </h2>
+
+    <a href="#tickets" id="CTA-about" class="pointer" onclick="showPage('tickets')">Read More</a>
+
+  </div>
   <!-- pages -->
   <div id="pages-wrapper">
     <!-- home page -->
@@ -41,9 +48,11 @@
         <div id="home-header-arrow" class="read-more-triangle color-white"></div>
       </div>
       <div id="grid-container"></div>
-      <div id="home-footer" class="background-color-black">
-        <a href="#home">Back to top of page</a>
+
+      <div id="home-footer" class="background-color-black pointer" onclick="toTheTop()">
+        <p>Back to top of page</p>
       </div>
+
 
     </section>
 
@@ -75,20 +84,28 @@
     </section>
   </div>
 
-  <footer class="footer-nav">
-    <section class="sponsor-header">
+  <footer id="footer" class="footer-nav default">
+    <section class="sponsor-footer">
       <h3>In collaboration with:</h3>
       <div class="footer-container">
-        <img src="img/koda_kultur_logo.png" alt="koda logo">
-        <img src="img/statens.jpg" alt="statens institut for kunst logo">
-        <img src="img/Tuborgfondet.jpg" alt="tuborgfondets logo">
-        <img src="img/aarhus_kommune.jpg" alt="aarhus kommune logo">
+        <a href="" alt="">
+          <img src="img/koda_kultur_logo.png" alt="koda logo">
+        </a>
+        <a href="" alt="">
+          <img src="img/statens.jpg" alt="statens institut for kunst logo">
+        </a>
+        <a href="" alt="">
+          <img src="img/Tuborgfondet.jpg" alt="tuborgfondets logo">
+        </a>
+        <a href="" alt="">
+          <img src="img/aarhus_kommune.jpg" alt="aarhus kommune logo">
+        </a>
       </div>
     </section>
-    <section class="sub-header background-color-black color-white">
+    <section class="sub-footer background-color-black color-white">
       <h3>Contact</h3>
       <div class="footer-container">
-        <a href="mailto:webmaster@example.com">resepct@kontinuum.com</a>
+        <a href="mailto:webmaster@example.com">respect@kontinuum.com</a>
         |
         <a href="tel:+4526272829">+45 26 27 28 29</a>
         |
@@ -98,14 +115,12 @@
   </footer>
 
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="javascript/fetch.js"></script>
 <script src="./build/three.js"></script>
 <script src="./build/three.min.js"></script>
 <script src="javascript/three.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="./plugin/jquery.fittext.js"></script>
 <script src="javascript/javascript.js"></script>
-<script src="javascript/fetch.js"></script>
 
 <script>
 

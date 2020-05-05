@@ -20,9 +20,9 @@ function appendPosts(posts) {
       </div>
       <section class="box-information">
         <h5 class="artist-hashtags"> ${post.acf.hashtags} </h5>
-        <img src="${post.acf.artist_image.url}" class="artist-image">
+        <img src="${post.acf.artist_image.url}" class="artist-image artist-image-border-red">
 
-        <button type="button" id="${post.id}" class="read-more-button music-red btnSort">
+        <button type="button" id="${post.id}" class="read-more-button music-red btnSort pointer">
           <p>Read More</p>
           <div class="fa fa-arrow-up read-more-triangle point-right margin-right color-red"></div>
         </button>
@@ -46,9 +46,9 @@ function appendPosts(posts) {
     </div>
     <section class="box-information">
       <h5 class="artist-hashtags"> ${post.acf.hashtags} </h5>
-      <img src="${post.acf.artist_image.url}" class="artist-image">
+      <img src="${post.acf.artist_image.url}" class="artist-image artist-image-border-purple">
 
-      <button type="button" id="${post.id}" class="read-more-button art-purple btnSort">
+      <button type="button" id="${post.id}" class="read-more-button art-purple btnSort pointer">
         <p>Read More</p>
         <div class="fa fa-arrow-up read-more-triangle point-left color-purple"></div>
       </button>
@@ -70,7 +70,7 @@ function appendPosts(posts) {
 <section class="box-information">
   <h5 class="artist-hashtags"> ${post.acf.hashtags} </h5>
 ${post.content.rendered}
-  <button type="button" class="ticket-button">
+  <button type="button" class="CTA-button pointer">
   <a class="color-white" href="#tickets" onclick="showPage('tickets')">Go to Tickets
     </a>
   </button>
