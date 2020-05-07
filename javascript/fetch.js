@@ -1,6 +1,6 @@
 // fetch data from WP
 
-fetch("http://localhost/wordpress/wp-json/wp/v2/posts")
+fetch("https://blog.kontinuum.one/wp-json/wp/v2/posts")
   .then(function(response) {
     return response.json();
   })
@@ -32,7 +32,7 @@ function appendPosts(posts) {
       <h3>${post.acf.main_hashtag}</h3>
     </div>
     <article id="${post.id}" class="more-info">
-      ${post.content.rendered}
+      <section class="article-content">${post.content.rendered}</section>
     </article>
     `;
     } else if (`${post.acf.main_hashtag}` === "art") {
@@ -55,10 +55,10 @@ function appendPosts(posts) {
     </section>
   </div>
   <article id="${post.id}" class="more-info">
-    ${post.content.rendered}
+    <section class="article-content">${post.content.rendered}</section>
   </article>
   `;
-    } else if (`${post.acf.main_hashtag}` === "Ticket") {
+    } else if (`${post.acf.main_hashtag}` === "ticket") {
       document.querySelector("#grid-container").innerHTML += `
 <div class="box background-color-green color-box">
   <h3>${post.acf.main_hashtag}</h3>
@@ -77,7 +77,7 @@ ${post.content.rendered}
 </section>
 </div>
 <article id="${post.id}" class="more-info">
-${post.content.rendered}
+  <section class="article-content">${post.content.rendered}</section>
 </article>
 `;
     }

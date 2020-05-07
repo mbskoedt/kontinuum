@@ -540,13 +540,12 @@ figure {
   overflow: hidden;
 }
 
-.more-info p {}
-
 .displayBlock {
   /*  display: block !important; */
   margin: 10px;
   max-height: 50vh;
   transition: max-height 0.55s ease-in;
+  overflow-y: scroll;
 }
 
 /* rotate */
@@ -675,6 +674,7 @@ figure {
     --thumbBG: #90A4AE;
   }
 
+  /* for body */
   body::-webkit-scrollbar {
     width: 11px;
   }
@@ -746,6 +746,11 @@ figure {
     max-width: 100vw;
   }
 
+  /* for displayBlock boxes */
+  .displayBlock::-webkit-scrollbar {
+    display: none;
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -803,6 +808,10 @@ figure {
     background: linear-gradient(270deg, var(--red), var(--purple));
   }
 
+  .active li a {
+    background: linear-gradient(270deg, var(--red), var(--purple));
+  }
+
   /* ------- Left side styling ----- */
   .left-side-element {
     max-width: 50vw;
@@ -839,12 +848,25 @@ figure {
   }
 
   /* --------- Artist info -------- */
-  .more-info p {
-    padding: 20px;
+  .article-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .article-content p:first-child {
+    max-width: 40%;
+    text-align: justify;
+  }
+
+  .more-info figure {
+    align-self: center;
   }
 
   .more-info .wp-block-embed-instagram {
-    max-width: 100%;
+    max-width: 45%;
+    max-height: 50vh;
   }
 
   /* ------- Footer ------ */
@@ -872,13 +894,7 @@ figure {
 }
 
 @media (min-width: 1700px) {
-  .more-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .more-info .displayBlock {
-    max-height: 50vh;
+  .footer-container a {
+    font-size: small;
   }
 }
