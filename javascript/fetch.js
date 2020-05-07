@@ -19,7 +19,7 @@ function appendPosts(posts) {
         <h3>${post.title.rendered}</h3>
       </div>
       <section class="box-information">
-        <h5 class="artist-hashtags"> ${post.acf.hashtags} </h5>
+        <h5 class="artist-hashtags"> ${post.acf.add_hashtags} </h5>
         <img src="${post.acf.artist_image.url}" class="artist-image artist-image-border-red">
 
         <button type="button" id="${post.id}" class="read-more-button music-red btnSort pointer">
@@ -45,7 +45,7 @@ function appendPosts(posts) {
       <h3>${post.title.rendered}</h3>
     </div>
     <section class="box-information">
-      <h5 class="artist-hashtags"> ${post.acf.hashtags} </h5>
+      <h5 class="artist-hashtags"> ${post.acf.add_hashtags} </h5>
       <img src="${post.acf.artist_image.url}" class="artist-image artist-image-border-purple">
 
       <button type="button" id="${post.id}" class="read-more-button art-purple btnSort pointer">
@@ -68,7 +68,7 @@ function appendPosts(posts) {
   <h3>${post.title.rendered}</h3>
 </div>
 <section class="box-information">
-  <h5 class="artist-hashtags"> ${post.acf.hashtags} </h5>
+  <h5 class="artist-hashtags"> ${post.acf.add_hashtags} </h5>
 ${post.content.rendered}
   <button type="button" class="CTA-button pointer">
   <a class="color-white" href="#tickets" onclick="showPage('tickets')">Go to Tickets
