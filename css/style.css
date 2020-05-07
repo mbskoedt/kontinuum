@@ -294,6 +294,13 @@ figure {
   height: 0;
 }
 
+.active {
+  background-image: linear-gradient(270deg, var(--red), var(--purple));
+  background-position: 50% 70%;
+  background-repeat: no-repeat;
+  background-size: 30% 2px;
+}
+
 /* ------ left side of the screen ----- */
 .left-side-element {
   width: 100%;
@@ -336,6 +343,16 @@ figure {
   width: 100%;
   max-width: 100%;
   margin-bottom: 100vh;
+}
+
+.page-heading {
+  width: 100%;
+  text-align: center;
+}
+
+.page-heading h3 {
+  font-size: large;
+  letter-spacing: 8px;
 }
 
 #home {
@@ -462,6 +479,7 @@ figure {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .box-information h5 {
@@ -699,6 +717,11 @@ figure {
     font-size: large;
   }
 
+  /* ------ when menu is active ---- */
+  .active {
+    background-size: 15% 2px;
+  }
+
   .left-side-element h2 {
     font-size: medium;
   }
@@ -739,7 +762,7 @@ figure {
     letter-spacing: 3px;
   }
 }
-
+/* ---------- Media Query 1020px and above --------*/
 @media (min-width: 1020px) {
   body {
     width: 100vw;
@@ -808,8 +831,13 @@ figure {
     background: linear-gradient(270deg, var(--red), var(--purple));
   }
 
-  .active li a {
-    background: linear-gradient(270deg, var(--red), var(--purple));
+  .active {
+    background-position: 50% 85%;
+    background-size: 65% 2px;
+  }
+
+  .page-heading {
+    display: none;
   }
 
   /* ------- Left side styling ----- */
@@ -896,5 +924,9 @@ figure {
 @media (min-width: 1700px) {
   .footer-container a {
     font-size: small;
+  }
+
+  .active {
+    background-size: 50% 2px;
   }
 }
