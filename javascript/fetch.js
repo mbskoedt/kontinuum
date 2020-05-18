@@ -86,13 +86,14 @@ ${post.content.rendered}
 
 // Button animation
 
-var contArrow = 0;
+let constArrow = 0;
 $("#grid-container").on('click', "button.btnSort", function() {
-  if (contArrow == 0) {
+  $(this).children("div.fa-arrow-up").removeClass("rotateDown");
+  if (constArrow == 0) {
     $(this).children("div.fa-arrow-up").removeClass("rotateTop").addClass("rotateDown")
-    contArrow++
-    console.log(this.id)
-    var id = this.id
+    constArrow++
+    console.log(constArrow)
+    let id = this.id
     $('#grid-container .more-info').each(function() {
       if (id == this.id) {
         $("#" + this.id + ".more-info").addClass("displayBlock")
@@ -100,7 +101,8 @@ $("#grid-container").on('click', "button.btnSort", function() {
     })
   } else {
     $(this).children("div.fa-arrow-up").removeClass("rotateDown").addClass("rotateTop")
-    contArrow--
+    constArrow--
+    console.log(constArrow)
     $("#" + this.id + ".more-info").removeClass("displayBlock")
   }
 })

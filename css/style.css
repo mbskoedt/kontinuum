@@ -342,17 +342,6 @@ figure {
   background-color: white;
   width: 100%;
   max-width: 100%;
-  margin-bottom: 100vh;
-}
-
-.page-heading {
-  width: 100%;
-  text-align: center;
-}
-
-.page-heading h3 {
-  font-size: large;
-  letter-spacing: 8px;
 }
 
 #home {
@@ -420,6 +409,24 @@ figure {
   }
 }
 
+/* ------ Grid styling ------- */
+
+/* ---- Welcoming post ----- */
+.welcome-post {
+  width: 100vw;
+  height: 50vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+}
+
+.welcome-post img {
+  width: 150%;
+  height: auto;
+}
+
 #grid-container {
   width: 100vw;
   max-width: 100%;
@@ -471,6 +478,7 @@ figure {
   padding-right: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  color: white;
 }
 
 .box-information {
@@ -561,7 +569,7 @@ figure {
 .displayBlock {
   /*  display: block !important; */
   margin: 10px;
-  max-height: 50vh;
+  max-height: 200vh;
   transition: max-height 0.55s ease-in;
   overflow-y: scroll;
 }
@@ -637,10 +645,8 @@ figure {
 
 /* ------ FOOTER ----- */
 .footer-nav {
-  position: fixed;
   z-index: 2;
   bottom: 0;
-  display: none;
   width: 100%;
   max-width: 100%;
   background-color: white;
@@ -728,6 +734,16 @@ figure {
 
   .header #logo_1 {
     width: 35%;
+  }
+
+  /* ---- page styling --- */
+
+  .welcome-post {
+    width: 50vw;
+  }
+
+  .welcome-post img {
+    width: 100%;
   }
 
   .more-info {
@@ -836,10 +852,6 @@ figure {
     background-size: 65% 2px;
   }
 
-  .page-heading {
-    display: none;
-  }
-
   /* ------- Left side styling ----- */
   .left-side-element {
     max-width: 50vw;
@@ -849,7 +861,6 @@ figure {
   /* ------- Page styling -------- */
   .page {
     width: 50vw;
-    margin-bottom: 30vh;
   }
 
   #pages-wrapper {
@@ -901,7 +912,6 @@ figure {
   #footer {
     width: 50vw;
     right: 0;
-    padding-top: 50vh;
   }
 
   .sponsor-footer {

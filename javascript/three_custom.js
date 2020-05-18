@@ -97,7 +97,7 @@ function mediaQuery(x) {
 
     square.rotation.x += 0.001;
     square.rotation.y -= 0.001;
-    square .rotation.z -= 0.002;
+    square.rotation.z -= 0.002;
     renderer.clear();
 
 

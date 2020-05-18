@@ -50,7 +50,7 @@ $(".toggle").on("click", function() {
 // Show footer when scrolled enough
 
 // https://codepen.io/labanino/pen/mexgmL
-
+/*
 $(window).scroll(function(event) {
   function footer() {
     var elementHeight = $("#pages-wrapper").outerHeight();
@@ -72,7 +72,7 @@ $(window).scroll(function(event) {
   }
   footer();
 });
-
+*/
 // go to artist window from arrow
 
 function goToArtists() {
