@@ -88,7 +88,6 @@ ${post.content.rendered}
 
 let constArrow = 0;
 $("#grid-container").on('click', "button.btnSort", function() {
-  $(this).children("div.fa-arrow-up").removeClass("rotateDown");
   if (constArrow == 0) {
     $(this).children("div.fa-arrow-up").removeClass("rotateTop").addClass("rotateDown")
     constArrow++
